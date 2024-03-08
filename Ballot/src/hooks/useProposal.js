@@ -4,7 +4,7 @@ import { getContract } from "../constants/contract";
 
 
 
-export const useProposals = () =>{
+const useProposals = () => {
 
 
     const [proposals, setProposals] = useState([]);
@@ -15,6 +15,7 @@ export const useProposals = () =>{
 
         contract.getAllProposals().then(
             res => {
+                console.log(res)
                 setProposals(res)
             }
         ).catch(error => {
@@ -24,5 +25,10 @@ export const useProposals = () =>{
     
 
 
-    (proposals);
+    // (proposals);
+
+    return proposals;
 }
+
+
+export default useProposals;

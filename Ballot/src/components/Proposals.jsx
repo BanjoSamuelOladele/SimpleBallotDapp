@@ -14,7 +14,7 @@ const Proposals = (props) => {
                         {props.voteCount}
                     </Text>
                 </Box>
-                <button  onClick={""}>Vote</button>
+                <button  onClick={props.handleVote}>Vote</button>
             </Flex>
         </Card>
     )
