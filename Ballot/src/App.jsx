@@ -12,7 +12,7 @@ function App() {
       <Header />
       <h1>I am here</h1>
 
-      <Proposals />
+      <Proposals name={"Dele"} voteCount={2}/>
     </Container>
   )
 }
