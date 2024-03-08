@@ -1,5 +1,6 @@
 {
   "dependencies": {
-    "@radix-ui/themes": "^2.0.3"
+    "@radix-ui/themes": "^2.0.3",
+    "ethers": "^6.11.1"
   }
 }
