@@ -1,9 +1,8 @@
 
 
 
-const handlePermitToVote = (address) =>{
-
-
+const handlePermitToVote = async (address) =>{
+    
 }
 
 export default handlePermitToVote;

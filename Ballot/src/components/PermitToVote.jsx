@@ -42,7 +42,7 @@ return (
                     </Dialog.Close>
                     <Dialog.Close>
                         <Button 
-                        onClick={() => handlePermitToVote(address)}
+                        onClick={() =>handlePermitToVote(address)}
                         className="bg-blue-600">Give Access to Vote</Button>
                     </Dialog.Close>
                 </Flex>
