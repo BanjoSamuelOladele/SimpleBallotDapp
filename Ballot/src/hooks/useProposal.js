@@ -23,6 +23,7 @@ export const useProposals = () => {
                 console.error(error);
             })
         }, [])
+
     return proposals;
 }
 export default useProposals;

@@ -1,7 +1,6 @@
 import { Flex } from "@radix-ui/themes";
 import Proposals from "./components/Proposals";
-import useProposals from "./functions/useProposal";
-import handleVote from "./functions/handleVote";
+import useProposals from "./hooks/useProposal";
 
 
 
@@ -16,7 +15,6 @@ const RenderProposals = () =>{
               id={index}
               name={item.name}
               voteCount={item.voteCount}
-              handleVote={handleVote}
             />
           ))
         }
