@@ -9,7 +9,6 @@ export const useProposals = () => {
     const [proposals, setProposals] = useState([]);
     useEffect(() => {
         const contract = getContract(readOnlyProvider);
-
         contract.getAllProposals()
             .then(
                 res => {

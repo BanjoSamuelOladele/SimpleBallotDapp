@@ -24,10 +24,8 @@ const handleVote = async (id) => {
         if(result.status) toast.success("Voted successfully...")
     } catch (error) {
         if(error.reason === "Has no right to vote") toast.error("Not eligible to vote")
-        if(error.reason === "Already voted.") toast.error("")
+        if(error.reason === "Already voted.") toast.error("You have already voted")
     }
-
-
 }
 
 export default handleVote;
