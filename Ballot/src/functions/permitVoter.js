@@ -9,6 +9,7 @@ const handlePermitToVote = (address) => {
     return useEffect(() => {
       
         if(!isSupportedChain(chainId)) return;
+        
     }, [])
     
 }
