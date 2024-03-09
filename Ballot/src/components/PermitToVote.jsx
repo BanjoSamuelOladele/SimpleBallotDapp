@@ -2,7 +2,7 @@
 
 import { Dialog, Flex, Button, Text, TextField } from "@radix-ui/themes";
 import { useState } from "react";
-import handlePermitToVote from "../hooks/permitVoter";
+import handlePermitToVote from "../functions/permitVoter";
 
 
 const PermitToVote = () => {
