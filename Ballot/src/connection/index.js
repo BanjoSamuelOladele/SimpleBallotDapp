@@ -1,14 +1,11 @@
 import { createWeb3Modal, defaultConfig } from '@web3modal/ethers/react'
 
 
-const projectId = import.meta.env.VITE_ProjectID;
-
-
 // 2. Set chains
 const mumbai = {
   chainId: import.meta.env.VITE_Mumbai_ChainId,
   name: 'Mumbai',
-  currency: 'ETH',
+  currency: 'MATIC',
   explorerUrl: import.meta.env.VITE_ExploreUrl,
   rpcUrl: import.meta.env.VITE_RPC_URL
 }
@@ -24,7 +21,7 @@ const metadata = {
 createWeb3Modal({
   ethersConfig: defaultConfig({ metadata }),
   chains: [mumbai],
-  projectId,
+  projectId: import.meta.env.VITE_ProjectID,
   enableAnalytics: true
 })
 
