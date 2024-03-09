@@ -2,14 +2,14 @@
 
 import { Dialog, Flex, Button, Text, TextField } from "@radix-ui/themes";
 import { useState } from "react";
+import handlePermitToVote from "../hooks/permitVoter";
+
 
 const PermitToVote = () => {
 
     const [address, setAddress] = useState("");
 
-    const handlePermitToVote = (address) =>{
-        
-    }
+    
 return (
     <Dialog.Root>
             <Dialog.Trigger>
