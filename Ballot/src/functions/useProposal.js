@@ -5,29 +5,25 @@ import { ethers } from "ethers";
 
 
 
-export default function useProposals(){
-
+export const useProposals = () => {
     const [proposals, setProposals] = useState([]);
-
-
     useEffect(() => {
         const contract = getContract(readOnlyProvider);
 
-        contract.getAllProposals().then(
-            res => {
-                const destructured = res.map(index =>({
-                    name: ethers.decodeBytes32String(index.name),
-                    voteCount: index.voteCount
-                }));
-                console.log(destructured);
-                setProposals(destructured);
-            }
-        ).catch(error => {
-            console.error(error);
-        })
-    }, [])
+        contract.getAllProposals()
+            .then(
+                res => {
+                    const destructured = res.map(index =>({
+                        name: ethers.decodeBytes32String(index.name),
+                        voteCount: index.voteCount
+                    }));
+                    console.log(destructured);
+                    setProposals(destructured);
+                }
+            ).catch(error => {
+                console.error(error);
+            })
+        }, [])
     return proposals;
 }
-
-
-// export default useProposals;
+export default useProposals;

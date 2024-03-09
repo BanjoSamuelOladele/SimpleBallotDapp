@@ -1,4 +1,4 @@
-import { Card, Flex, Box, Text  } from "@radix-ui/themes";
+import { Card, Flex, Box, Text, Avatar  } from "@radix-ui/themes";
 
 
 
@@ -6,15 +6,16 @@ const Proposals = (props) => {
     return (
         <Card style={{ maxWidth: 240 }}>
             <Flex justify={"between"} gap="3" align="center">
+            <Avatar size="4" radius="full" fallback={`#${Number(props.id)}`} color="indigo" />
                 <Box>
                     <Text as="div" size="2" weight="bold">
                         {props.name}
                     </Text>
                     <Text as="div" size="2" color="gray">
-                        {props.voteCount}
+                        Number of Votes: {Number(props.voteCount)}
                     </Text>
                 </Box>
-                <button  onClick={() => props.handleVote(props.id)}>Vote</button>
+                <button  onClick={() => props.handleVote(Number(props.id))}>Vote</button>
             </Flex>
         </Card>
     )

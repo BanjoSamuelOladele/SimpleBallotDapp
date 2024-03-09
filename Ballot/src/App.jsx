@@ -1,4 +1,4 @@
-import { Container } from "@radix-ui/themes";
+import { Container, Flex } from "@radix-ui/themes";
 import Header from "./components/Header"
 import {connectWalletPrompt} from "./connection";
 import Proposals from "./components/Proposals";
@@ -11,18 +11,25 @@ connectWalletPrompt();
 
 function App() {
 
-  const {proposal} = useProposals();
+  const proposal = useProposals();
   console.log("inside the app... ",proposal);
   return (
     <Container>
       <Header />
       <Delegate />
-      <Proposals 
-        id={1} 
-        name={"Dele"} 
-        voteCount={2} 
-        handleVote={handleVote}
-      />
+      <Flex wrap={"wrap"} gap={"6"}>
+        {
+          proposal.map((item, index) => (
+            <Proposals 
+              key={index}
+              id={index}
+              name={item.name}
+              voteCount={item.voteCount}
+              handleVote={handleVote}
+            />
+          ))
+        }
+      </Flex>
     </Container>
   )
 }
