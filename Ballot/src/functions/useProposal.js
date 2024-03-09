@@ -1,32 +1,36 @@
 import { useEffect, useState } from "react"
-// import { readOnlyProvider } from "../constants/provider";
-// import { getContract } from "../constants/contract";
+import { readOnlyProvider } from "../constants/provider";
+import { getContract } from "../constants/contract";
 
 
 
 export default function useProposals(){
 
-    // const [proposals, setProposals] = useState([]);
+    const [proposals, setProposals] = useState([]);
 
 
-    // useEffect(() => {
-    //     const contract = getContract(readOnlyProvider);
+    useEffect(() => {
+        const contract = getContract(readOnlyProvider);
+    
+        console.log(contract.getAllProposals());
 
-    //     contract.getAllProposals().then(
-    //         res => {
-    //             console.log(res)
-    //             setProposals(res)
-    //         }
-    //     ).catch(error => {
-    //         console.error(error);
-    //     })
-    // }, [])
+        //console.log(" gotten contracts...",contract);
+
+        // contract.getAllProposals().then(
+        //     res => {
+        //         console.log(res)
+        //         setProposals(res)
+        //     }
+        // ).catch(error => {
+        //     console.error(error);
+        // })
+    }, [])
     
 
 
-    // // (proposals);
+    // (proposals);
 
-    // return proposals;
+    return proposals;
 }
 
 

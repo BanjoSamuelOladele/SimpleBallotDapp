@@ -1,5 +1,6 @@
 import { ethers } from "ethers";
-import {Abi} from "./Abi.json";
+import Abi from "./abi.json";
+
 
 
 
