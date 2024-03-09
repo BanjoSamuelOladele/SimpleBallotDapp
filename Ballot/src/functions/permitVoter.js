@@ -26,11 +26,21 @@ const handlePermitToVote = (address) => {
 
         try{
             const estimatedGas = await contract.giveRightToVote.estimateGas(address);
+
+            const transaction = await contract.giveRightToVote(address, {
+                gasLimit: estimatedGas
+            });
+
+            const  receipt = await transaction.wait();
+
+            if (receipt.status) toast.success("successful");
+            else toast.error("an error occurred");
         }catch(error){
-            
+            toast.error(error.reason);
+            console.error(error);
         }
 
-    }, [])
+    }, [address]);
     
     
 }
