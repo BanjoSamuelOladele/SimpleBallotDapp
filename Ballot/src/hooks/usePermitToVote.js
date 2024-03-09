@@ -12,6 +12,7 @@ const usePermitToVote = (address) => {
     const { walletProvider } = useWeb3ModalProvider();
 
     return useCallback(async () => {
+
         if (!isSupportedChain(chainId)) return console.error("Wrong network");
         if (!isAddress(address)) return console.error("Invalid address");
         const readWriteProvider = readAndChangeStateProvider(walletProvider);

@@ -10,8 +10,8 @@ import usePermitToVote from "../hooks/usePermitToVote";
 const PermitToVote = () => {
 
     const [addressa, setAddress] = useState("");
-    const giveVote = usePermitToVote(addressa);
     const {address} = useWeb3ModalAccount();
+    const giveVote = usePermitToVote(addressa);
     const chairPerson = isChairPerson(address);
 
     return (
@@ -47,7 +47,7 @@ const PermitToVote = () => {
                             {
                                 chairPerson ? 
                                     <Button 
-                                        onClick={() => giveVote(addressa)}
+                                        onClick={giveVote(addressa)}
                                         className="bg-blue-600">Give Access to Vote
                                     </Button>
                                 : 
