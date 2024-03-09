@@ -19,7 +19,7 @@ function App() {
     <Container>
       <Header />
       <Delegate />
-      <Proposals name={"Dele"} voteCount={2}/>
+      <Proposals id={1} name={"Dele"} voteCount={2}/>
     </Container>
   )
 }
