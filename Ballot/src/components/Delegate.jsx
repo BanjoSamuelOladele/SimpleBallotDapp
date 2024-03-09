@@ -19,11 +19,11 @@ const Delegate = () => {
                     </Text>
                     <TextField.Input 
                         value={address}
-                        onChange={(e) => e.target.value}
+                        onChange={(e) => setAddress(e.target.value)}
                         placeholder="Enter Delegate Address"
                     />
                     <button
-                        onClick={delegateVoter}
+                        onClick={(address) => delegateVoter(address)}
                     >Delegate Vote</button>
                 </Box>
             </Flex>

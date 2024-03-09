@@ -1,6 +1,6 @@
 
 
-const delegateVoter = () => {
+const delegateVoter = async (address) => {
 
 }
 
