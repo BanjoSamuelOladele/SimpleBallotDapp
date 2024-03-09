@@ -8,7 +8,6 @@ const Header = () =>{
         <div className="flex item-center justify-between">
             <Container>Ballot Dapp</Container>
             <Flex>
-                {/* {isChairPerson && <PermitToVote />} */}
                 <PermitToVote />
                 <w3m-button />
             </Flex>

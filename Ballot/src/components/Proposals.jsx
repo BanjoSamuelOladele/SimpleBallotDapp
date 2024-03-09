@@ -1,5 +1,5 @@
 import { Card, Flex, Box, Text, Avatar  } from "@radix-ui/themes";
-import useHandleVote from "../functions/useHandleVote";
+import useHandleVote from "../hooks/useHandleVote";
 
 
 

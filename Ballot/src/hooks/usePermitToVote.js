@@ -7,7 +7,7 @@ import { useCallback } from "react";
 
 
 
-const useGiveVote = (address) => {
+const usePermitToVote = (address) => {
     const { chainId } = useWeb3ModalAccount();
     const { walletProvider } = useWeb3ModalProvider();
 
@@ -43,4 +43,4 @@ const useGiveVote = (address) => {
     }, [address, chainId, walletProvider]);
 }
 
-export default useGiveVote;
+export default usePermitToVote;

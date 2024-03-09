@@ -2,19 +2,16 @@
 
 import { Dialog, Flex, Button, Text, TextField } from "@radix-ui/themes";
 import { useState } from "react";
-import useGiveVote from "../hooks/useGiveVote";
 import { useWeb3ModalAccount } from "@web3modal/ethers/react";
 import isChairPerson from "../hooks/useIsChairPerson";
+import usePermitToVote from "../hooks/usePermitToVote";
 
 
 const PermitToVote = () => {
 
     const [addressa, setAddress] = useState("");
-
-    const giveVote = useGiveVote(addressa);
-
+    const giveVote = usePermitToVote(addressa);
     const {address} = useWeb3ModalAccount();
-
     const chairPerson = isChairPerson(address);
 
     return (
@@ -22,7 +19,6 @@ const PermitToVote = () => {
                 <Dialog.Trigger>
                     <Button className="bg-blue-600">Permit Voter</Button>
                 </Dialog.Trigger>
-
                 <Dialog.Content style={{ maxWidth: 450 }}>
                     <Dialog.Title>Edit profile</Dialog.Title>
                     <Dialog.Description size="2" mb="4">
