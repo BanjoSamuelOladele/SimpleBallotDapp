@@ -3,13 +3,19 @@
 import { Dialog, Flex, Button, Text, TextField } from "@radix-ui/themes";
 import { useState } from "react";
 import useGiveVote from "../hooks/useGiveVote";
+import { useWeb3ModalAccount } from "@web3modal/ethers/react";
+import isChairPerson from "../hooks/useIsChairPerson";
 
 
 const PermitToVote = () => {
 
-    const [address, setAddress] = useState("");
+    const [addressa, setAddress] = useState("");
 
-    const giveVote = useGiveVote(address);
+    const giveVote = useGiveVote(addressa);
+
+    const {address} = useWeb3ModalAccount();
+
+    const chairPerson = isChairPerson(address);
 
     return (
         <Dialog.Root>
@@ -29,7 +35,7 @@ const PermitToVote = () => {
                                 Voter&apos;s Address
                             </Text>
                             <TextField.Input
-                            value={address}
+                            value={addressa}
                             onChange={(e) => setAddress(e.target.value)}
                             placeholder="Enter Voter's Address" />
                         </label>
@@ -42,9 +48,19 @@ const PermitToVote = () => {
                             </Button>
                         </Dialog.Close>
                         <Dialog.Close>
-                            <Button 
-                            onClick={() => giveVote(address)}
-                            className="bg-blue-600">Give Access to Vote</Button>
+                            {
+                                chairPerson ? 
+                                    <Button 
+                                        onClick={() => giveVote(addressa)}
+                                        className="bg-blue-600">Give Access to Vote
+                                    </Button>
+                                : 
+                                    <Button 
+                                        disabled={true}
+                                        onClick={() => giveVote(addressa)}
+                                        className="bg-blue-600">Give Access to Vote
+                                    </Button>
+                            }
                         </Dialog.Close>
                     </Flex>
                 </Dialog.Content>

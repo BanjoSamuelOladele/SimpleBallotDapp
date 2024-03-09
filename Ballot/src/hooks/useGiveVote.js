@@ -23,15 +23,6 @@ const useGiveVote = (address) => {
             const estimatedGas = await contract.giveRightToVote.estimateGas(
                 address
             );
-            // console.log("estimatedGas: ", estimatedGas);
-
-            // const feeData = await readWriteProvider.getFeeData();
-
-            // console.log("feeData: ", feeData);
-
-            // const gasFee = estimatedGas * feeData.gasPrice;
-
-            // console.log("estimated: ", gasFee);
 
             const transaction = await contract.giveRightToVote(address, {
                 gasLimit: estimatedGas,
