@@ -9,9 +9,7 @@ const handleVote = async (id) => {
 
     const {chainId} = useWeb3ModalAccount();
     const {walletProvider} = useWeb3ModalProvider();
-    
     if(isSupportedChain(chainId)) return toast.error("");
-    
     const readAndChangeState = readAndChangeStateProvider(walletProvider);
     const signer = await readAndChangeState.getSigner();
 
