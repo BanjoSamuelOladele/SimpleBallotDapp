@@ -17,7 +17,7 @@ const handlePermitToVote = (address) => {
     return useEffect(async () => {
 
         if(!isSupportedChain(chainId)) return toast.error("not on the supported network");
-        if(!isAddress(address)) return toast.error("");
+        if(!isAddress(address)) return toast.error("in valid address");
 
         const readAndWrite = readAndChangeStateProvider(walletProvider);
         const signer = readAndWrite.getSigner();
@@ -31,7 +31,7 @@ const handlePermitToVote = (address) => {
                 gasLimit: estimatedGas
             });
 
-            const  receipt = await transaction.wait();
+            const receipt = await transaction.wait();
 
             if (receipt.status) toast.success("successful");
             else toast.error("an error occurred");

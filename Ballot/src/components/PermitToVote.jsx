@@ -9,7 +9,6 @@ const PermitToVote = () => {
 
     const [address, setAddress] = useState("");
 
-    
 return (
     <Dialog.Root>
             <Dialog.Trigger>
