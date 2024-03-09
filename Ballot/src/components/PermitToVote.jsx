@@ -1,12 +1,19 @@
 
 
 import { Dialog, Flex, Button, Text, TextField } from "@radix-ui/themes";
+import { useState } from "react";
 
 const PermitToVote = () => {
+
+    const [address, setAddress] = useState("");
+
+    const handlePermitToVote = (address) =>{
+        
+    }
 return (
     <Dialog.Root>
             <Dialog.Trigger>
-                <Button className="bg-blue-600">Add Voter</Button>
+                <Button className="bg-blue-600">Permit Voter</Button>
             </Dialog.Trigger>
 
             <Dialog.Content style={{ maxWidth: 450 }}>
@@ -20,7 +27,10 @@ return (
                         <Text as="div" size="2" mb="1" weight="bold">
                             Voter&apos;s Address
                         </Text>
-                        <TextField.Input placeholder="Enter Voter's Address" />
+                        <TextField.Input
+                        value={address}
+                        onChange={(e) => setAddress(e.target.value)}
+                         placeholder="Enter Voter's Address" />
                     </label>
                 </Flex>
 
@@ -31,7 +41,9 @@ return (
                         </Button>
                     </Dialog.Close>
                     <Dialog.Close>
-                        <Button className="bg-blue-600">Add voter</Button>
+                        <Button 
+                        onClick={() => handlePermitToVote(address)}
+                        className="bg-blue-600">Give Access to Vote</Button>
                     </Dialog.Close>
                 </Flex>
             </Dialog.Content>
