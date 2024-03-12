@@ -19,17 +19,17 @@ const useDelegateFunction = (address) => {
 
         const contract = getContract(signer);
 
-        const toastId = toast.loading('Delegating:::');
+        // const toastId = toast.loading('Delegating:::');
         try {
             const transaction = await contract.delegate(address);
             const receipt = await transaction.wait();
 
-            toast.remove(toastId)
+            // toast.remove(toastId)
             if (receipt.status) {
                 toast.success(`successfully delegated!`);
             }
         } catch (error) {
-            toast.remove(toastId)
+            // toast.remove(toastId)
             toast.error(`Delegation failed! ${error.reason}`)
         }
     }, [address, chainId, walletProvider]);

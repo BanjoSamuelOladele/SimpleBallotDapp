@@ -1,23 +1,25 @@
-import { useWeb3ModalAccount, useWeb3ModalProvider } from "@web3modal/ethers/react";
-import { isSupportedChain } from "../utils/isSupportedChain";
+// import { useWeb3ModalAccount, useWeb3ModalProvider } from "@web3modal/ethers/react";
+// import { isSupportedChain } from "../utils/isSupportedChain";
 // import { toast } from "react-toastify";
-import { readAndChangeStateProvider } from "../constants/provider";
-import { getContract } from "../constants/contract";
+// import { readAndChangeStateProvider } from "../constants/provider";
+// import { getContract } from "../constants/contract";
 import { useCallback } from "react";
+import handleSigner from "../functions/handleSigner";
 // import handleSigner from "./handleSigner";
 
 
 const useHandleVote = (id) => {
 
-    const { chainId } = useWeb3ModalAccount();
-    const { walletProvider } = useWeb3ModalProvider();
+    // const { chainId } = useWeb3ModalAccount();
+    // const { walletProvider } = useWeb3ModalProvider();
 
     return useCallback(async () => {
-        if (!isSupportedChain(chainId)) return console.error("Wrong network");
-        const readWriteProvider = readAndChangeStateProvider(walletProvider);
-        const signer = await readWriteProvider.getSigner();
+        // if (!isSupportedChain(chainId)) return console.error("Wrong network");
+        // const readWriteProvider = readAndChangeStateProvider(walletProvider);
+        // const signer = await readWriteProvider.getSigner();
 
-        const contract = getContract(signer);
+        // const contract = getContract(signer);
+        const contract = await handleSigner();
 
         try {
             const transaction = await contract.vote(id);
